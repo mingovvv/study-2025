@@ -69,3 +69,17 @@ jobs:
             (Python, Java, JavaScript 파일 중 오류가 있을 수 있습니다.)
 
             작성자: @${{ github.actor }}
+
+  comment-on-success:
+    runs-on: ubuntu-latest
+    needs: lint
+    if: success()
+    steps:
+      - name: Comment on PR Success
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🎉 코드 문법 검사를 통과했습니다!
+            - 작성자: @${{ github.actor }}
+            - 이제 Merge 준비가 완료되었습니다! Merge를 진행해 주세요. ✅
