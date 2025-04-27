@@ -9,6 +9,10 @@ on:
       - '**/*.java'
       - '**/*.js'
 
+permissions:
+  pull-requests: write
+
+
 jobs:
   lint:
     runs-on: ubuntu-latest
