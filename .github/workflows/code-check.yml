@@ -1,0 +1,71 @@
+name: Code Style Check
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.py'
+      - '**/*.java'
+      - '**/*.js'
+
+permissions:
+  pull-requests: write
+
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    outputs:
+      lint-result: ${{ steps.set-result.outputs.result }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Python syntax check
+        run: |
+          echo "Checking Python syntax..."
+          find . -name "*.py" -exec python3 -m py_compile {} \;
+
+      - name: Java compile check
+        run: |
+          echo "Checking Java syntax..."
+          find . -name "*.java" -exec javac {} \;
+
+      - name: JavaScript syntax check
+        run: |
+          echo "Checking JavaScript syntax..."
+          find . -name "*.js" -exec node --check {} \;
+
+  comment-on-failure:
+    runs-on: ubuntu-latest
+    needs: lint
+    if: failure()
+    steps:
+      - name: Comment on PR Failure
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ❌ 코드 문법 검사에 실패했습니다!
+            
+            PR을 다시 확인해주세요.  
+            (Python, Java, JavaScript 파일 중 오류가 있을 수 있습니다.)
+
+            작성자: @${{ github.actor }}
