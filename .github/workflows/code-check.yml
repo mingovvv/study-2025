@@ -41,7 +41,7 @@ jobs:
       - name: Python syntax check
         run: |
           echo "Checking Python syntax..."
-          find . -name "*.py" -exec python3 -m py_compile {} \;
+          python3 -m compileall -q .
 
       - name: Java compile check
         run: |
