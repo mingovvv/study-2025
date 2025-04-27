@@ -1,0 +1,22 @@
+name: PR Comment on Submission
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🎉 스터디 과제 PR이 정상적으로 제출되었습니다!
+            - 작성자: @${{ github.actor }}
+            - PR 제목: ${{ github.event.pull_request.title }}
+
+            코드 문법 검사도 자동으로 진행 중입니다! ✅
