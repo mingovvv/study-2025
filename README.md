@@ -45,14 +45,13 @@
 ```plaintext
 study-2025/
 ├── README.md
-├── algorithm/
-│   ├── week_01/
+├── week_01/
+│   ├── algorithm/
 │   │   ├── mk.jang/
 │   │   │   ├── Problem01.py
-├── backend/
-│   ├── week_01/
-│   │   ├── mk.jang/
+│   │   │   ├── ...
 └── .github/
     ├── workflows/
     │   ├── code-check.yml
     │   ├── pr-comment.yml
+    │   ├── ...
