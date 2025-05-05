@@ -29,6 +29,22 @@ public class ReportGenerator {
         // 후처리
         logger.log(type, data.size());
         emailSender.send("admin@example.com", type + " 보고서가 생성되었습니다.");
+
+        System.out.println("----------------------------------------------");
+
+        type = "PDF";
+
+        // 전처리
+        preprocessor.preprocess(data);
+
+        // 본 처리
+        ReportRender reportRender2 = ReportRenderFactory.getReportRender2(type);
+        reportRender2.render(data);
+
+        // 후처리
+        logger.log(type, data.size());
+        emailSender.send("admin@example.com", type + " 보고서가 생성되었습니다.");
+
     }
 
 }
