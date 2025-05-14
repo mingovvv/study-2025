@@ -14,8 +14,8 @@ public class ConcurrencyIssueMain {
         // 테스트할 ID 생성기 인스턴스 생성
          final UniqueIdGenerator idGenerator = UniqueIdGenerator.getInstance();
 //        final UniqueIdGeneratorEager idGenerator = UniqueIdGeneratorEager.getInstance();
-        // final UniqueIdGeneratorStaticInner idGenerator = UniqueIdGeneratorStaticInner.getInstance();
-        // final UniqueIdGeneratorDoubleChecked idGenerator = UniqueIdGeneratorDoubleChecked.getInstance();
+//         final UniqueIdGeneratorStaticInner idGenerator = UniqueIdGeneratorStaticInner.getInstance();
+//         final UniqueIdGeneratorDoubleChecked idGenerator = UniqueIdGeneratorDoubleChecked.getInstance();
 
         System.out.println("테스트에 사용될 단일 UniqueIdGenerator 인스턴스. HashCode: " + idGenerator.hashCode());
         System.out.println("----------------------------------------------------");

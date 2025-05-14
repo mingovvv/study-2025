@@ -1,10 +1,9 @@
-import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicLong;
 
-// 더블체킹방식: 지연 초기화 가능하지만 가독성이 떨어짐
-public class UniqueIdGeneratorDoubleChecked implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+/**
+ * [더블 체킹 방식]
+ */
+public class UniqueIdGeneratorDoubleChecked {
 
     // volatile 키워드 필수: instance 변수의 가시성 및 명령어 재배치 방지
     private static volatile UniqueIdGeneratorDoubleChecked instance;

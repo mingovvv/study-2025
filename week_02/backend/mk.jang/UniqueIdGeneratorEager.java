@@ -1,12 +1,12 @@
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicLong;
 
-// 이른초기화 방식: 구현 간단하지만 지연 초기화가 안됨
-public class UniqueIdGeneratorEager implements Serializable {
+/**
+ * [이른 초기화 방식]
+ * - 클래스 로딩 시점에 인스턴스 생성
+ */
+public class UniqueIdGeneratorEager {
 
-    private static final long serialVersionUID = 1L;
-
-    // 이른 초기화: 클래스 로딩 시점에 인스턴스 생성
     private static final UniqueIdGeneratorEager INSTANCE = new UniqueIdGeneratorEager();
 
     private final AtomicLong currentId = new AtomicLong(0L);
