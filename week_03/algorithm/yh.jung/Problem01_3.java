@@ -3,7 +3,7 @@ package algorithm.yh.jung;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Problem01 {
+public class Problem01_3 {
     public static void main(String[] args) {
         /*
         * - i/n == 행
