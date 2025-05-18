@@ -45,6 +45,7 @@
 ```plaintext
 study-2025/
 ├── README.md
+├── backend-web (backend 과제를 위한 모듈)
 ├── week_01/
 │   ├── algorithm/
 │   │   ├── mk.jang/
