@@ -1,4 +1,4 @@
-package backend.backendweb.week_03._problem.dto.request;
+package backend.backendweb.week_03.yh.jung.dto.request;
 
 import backend.backendweb.week_03._problem.entity.User;
 import backend.backendweb.week_03._problem.enums.UserRole;

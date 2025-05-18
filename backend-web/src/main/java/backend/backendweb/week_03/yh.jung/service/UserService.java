@@ -1,4 +1,4 @@
-package backend.backendweb.week_03._problem.service;
+package backend.backendweb.week_03.yh.jung.service;
 
 import backend.backendweb.week_03._problem.dto.request.UserCreateRequest;
 import backend.backendweb.week_03._problem.dto.response.UserResponse;

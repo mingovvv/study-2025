@@ -1,4 +1,4 @@
-package backend.backendweb.week_03._problem.dto.response;
+package backend.backendweb.week_03.yh.jung.dto.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
