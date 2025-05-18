@@ -1,8 +1,8 @@
 package backend.backendweb.week_01.mk.jang.week01.factory_v2.concrete;
 
-import com.test.week01.factory_v2.RendererCreator;
-import com.test.week01.strategy.ReportRendererStrategy;
-import com.test.week01.strategy.concrete.PdfReportRenderer;
+import backend.backendweb.week_01.mk.jang.week01.factory_v2.RendererCreator;
+import backend.backendweb.week_01.mk.jang.week01.strategy.ReportRendererStrategy;
+import backend.backendweb.week_01.mk.jang.week01.strategy.concrete.PdfReportRenderer;
 
 /**
  * [팩토리 메소드 패턴]: 구체적인 생성자 클래스 (ConcreteCreator)

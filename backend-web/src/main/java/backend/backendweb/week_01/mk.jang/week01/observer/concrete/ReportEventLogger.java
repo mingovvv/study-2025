@@ -1,6 +1,6 @@
 package backend.backendweb.week_01.mk.jang.week01.observer.concrete;
 
-import com.test.week01.observer.ReportObserver;
+import backend.backendweb.week_01.mk.jang.week01.observer.ReportObserver;
 
 /**
  * [옵서버 패턴]: 구체적인 옵서버 (Concrete Observer)

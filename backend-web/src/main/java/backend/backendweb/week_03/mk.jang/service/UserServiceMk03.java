@@ -1,8 +1,8 @@
 package backend.backendweb.week_03.mk.jang.service;
 
-import backend.backendweb.week_03._problem.dto.request.UserCreateRequest;
-import backend.backendweb.week_03._problem.dto.response.UserResponse;
-import backend.backendweb.week_03._problem.dto.response.UserSimpleResponse;
+import backend.backendweb.week_03.mk.jang.dto.request.UserCreateRequest;
+import backend.backendweb.week_03.mk.jang.dto.response.UserResponse;
+import backend.backendweb.week_03.mk.jang.dto.response.UserSimpleResponse;
 import backend.backendweb.week_03._problem.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserServiceMk03 {
 
     private final UserRepository userRepository;
 

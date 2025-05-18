@@ -1,9 +1,9 @@
 package backend.backendweb.week_01.mk.jang.week01.factory;
 
-import com.test.week01.strategy.ReportRendererStrategy;
-import com.test.week01.strategy.concrete.CsvReportRenderer;
-import com.test.week01.strategy.concrete.ExcelReportRenderer;
-import com.test.week01.strategy.concrete.PdfReportRenderer;
+import backend.backendweb.week_01.mk.jang.week01.strategy.ReportRendererStrategy;
+import backend.backendweb.week_01.mk.jang.week01.strategy.concrete.CsvReportRenderer;
+import backend.backendweb.week_01.mk.jang.week01.strategy.concrete.ExcelReportRenderer;
+import backend.backendweb.week_01.mk.jang.week01.strategy.concrete.PdfReportRenderer;
 
 /**
  * [팩토리 메소드 패턴]: 구체적인 팩토리 (Concrete Factory)

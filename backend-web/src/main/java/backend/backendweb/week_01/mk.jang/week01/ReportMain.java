@@ -1,13 +1,13 @@
 package backend.backendweb.week_01.mk.jang.week01;
 
-import com.test.week01.factory_v2.RendererCreator;
-import com.test.week01.factory_v2.concrete.CsvRendererCreator;
-import com.test.week01.observer.ReportObserver;
-import com.test.week01.observer.ReportSubject;
-import com.test.week01.observer.concrete.DefaultReportEventNotifier;
-import com.test.week01.observer.concrete.EmailNotificationListener;
-import com.test.week01.observer.concrete.ReportEventLogger;
-import com.test.week01.template.AbstractReportGenerator;
+import backend.backendweb.week_01.mk.jang.week01.factory_v2.RendererCreator;
+import backend.backendweb.week_01.mk.jang.week01.factory_v2.concrete.CsvRendererCreator;
+import backend.backendweb.week_01.mk.jang.week01.observer.ReportObserver;
+import backend.backendweb.week_01.mk.jang.week01.observer.ReportSubject;
+import backend.backendweb.week_01.mk.jang.week01.observer.concrete.DefaultReportEventNotifier;
+import backend.backendweb.week_01.mk.jang.week01.observer.concrete.EmailNotificationListener;
+import backend.backendweb.week_01.mk.jang.week01.observer.concrete.ReportEventLogger;
+import backend.backendweb.week_01.mk.jang.week01.template.AbstractReportGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

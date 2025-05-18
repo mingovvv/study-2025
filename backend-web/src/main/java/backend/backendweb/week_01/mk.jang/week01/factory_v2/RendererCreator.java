@@ -1,6 +1,6 @@
 package backend.backendweb.week_01.mk.jang.week01.factory_v2;
 
-import com.test.week01.strategy.ReportRendererStrategy;
+import backend.backendweb.week_01.mk.jang.week01.strategy.ReportRendererStrategy;
 
 /**
  * [팩토리 메소드 패턴]: 생성자 추상 클래스 (Creator)

@@ -1,7 +1,7 @@
 package backend.backendweb.week_01.mk.jang.week01.observer.concrete;
 
-import com.test.week01.observer.ReportObserver;
-import com.test.week01.observer.ReportSubject;
+import backend.backendweb.week_01.mk.jang.week01.observer.ReportObserver;
+import backend.backendweb.week_01.mk.jang.week01.observer.ReportSubject;
 
 import java.util.ArrayList;
 import java.util.List;

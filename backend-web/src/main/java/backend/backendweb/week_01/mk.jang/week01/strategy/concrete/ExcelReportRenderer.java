@@ -1,6 +1,6 @@
 package backend.backendweb.week_01.mk.jang.week01.strategy.concrete;
 
-import com.test.week01.strategy.ReportRendererStrategy;
+import backend.backendweb.week_01.mk.jang.week01.strategy.ReportRendererStrategy;
 
 import java.util.List;
 

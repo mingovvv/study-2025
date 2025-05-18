@@ -1,7 +1,7 @@
 package backend.backendweb.week_03.yh.jung.service;
 
-import backend.backendweb.week_03._problem.dto.request.TeamCreateRequest;
-import backend.backendweb.week_03._problem.dto.response.TeamResponse;
+import backend.backendweb.week_03.yh.jung.dto.request.TeamCreateRequest;
+import backend.backendweb.week_03.yh.jung.dto.response.TeamResponse;
 import backend.backendweb.week_03._problem.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TeamService {
+public class TeamServiceYh03 {
 
     private final TeamRepository teamRepository;
 
