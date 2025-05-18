@@ -1,4 +1,4 @@
-package backend.backendweb.week_03._problem.dto.response;
+package backend.backendweb.week_03.mk.jang.dto.response;
 
 import backend.backendweb.week_03._problem.enums.UserRole;
 import lombok.Data;
