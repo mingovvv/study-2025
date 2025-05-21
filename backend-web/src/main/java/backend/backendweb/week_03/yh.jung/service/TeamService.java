@@ -1,8 +1,8 @@
 package backend.backendweb.week_03.yh.jung.service;
 
-import backend.backendweb.week_03._problem.dto.request.TeamCreateRequest;
-import backend.backendweb.week_03._problem.dto.response.TeamResponse;
 import backend.backendweb.week_03._problem.repository.TeamRepository;
+import backend.backendweb.week_03.yh.jung.dto.request.TeamCreateRequest;
+import backend.backendweb.week_03.yh.jung.dto.response.TeamResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,10 @@
-package backend.backendweb.week_03.mk.jang.dto.request;
+package backend.backendweb.week_03.mk_jang.dto.request;
 
 import backend.backendweb.week_03._problem.entity.User;
 import backend.backendweb.week_03._problem.enums.UserRole;
+import lombok.Getter;
 
+@Getter
 public class UserCreateRequest {
 
     /**

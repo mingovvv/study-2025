@@ -1,12 +1,18 @@
-package backend.backendweb.week_03.mk.jang.dto.response;
+package backend.backendweb.week_03.mk_jang.dto.response;
 
+import backend.backendweb.week_03._problem.entity.Team;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class TeamResponse {
 
     /**
@@ -65,8 +71,25 @@ public class TeamResponse {
      */
     private List<UserSimpleResponse> members;
 
-    public static TeamResponse fromEntity() {
-        return null;
+    public static TeamResponse from(Team entity) {
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        return TeamResponse.builder()
+                .id(entity.getId())
+                .teamName(entity.getTeamName())
+                .projectCode(entity.getProjectCode())
+                .descriptionOrDefault(entity.getDescription() != null ? entity.getDescription() : "No description provided.")
+                .createdAtFormatted(entity.getCreatedAt().format(dateTimeFormatter))
+                .foundationDateFormatted(entity.getFoundationDate().format(dateFormatter))
+                .memberCount(entity.getMembers() != null ? entity.getMembers().size() : 0)
+                .members(entity.getMembers() != null ? entity.getMembers().stream().map(UserSimpleResponse::from).toList() : null)
+                .build();
+    }
+
+    public static List<TeamResponse> fromList(List<Team> teams) {
+        return teams.stream().map(TeamResponse::from).toList();
     }
 
 }

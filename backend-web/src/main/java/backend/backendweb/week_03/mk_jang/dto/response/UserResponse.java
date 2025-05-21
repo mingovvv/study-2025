@@ -1,11 +1,18 @@
-package backend.backendweb.week_03.mk.jang.dto.response;
+package backend.backendweb.week_03.mk_jang.dto.response;
 
+import backend.backendweb.week_03._problem.entity.User;
 import backend.backendweb.week_03._problem.enums.UserRole;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
+
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserResponse {
 
     /**
@@ -78,8 +85,23 @@ public class UserResponse {
      */
     private int currentLoginAttempts;
 
-    public static UserResponse fromEntity() {
-        return null;
+    public static UserResponse from(User entity) {
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        return UserResponse.builder()
+                .id(entity.getId())
+                .fullName(entity.getFirstName() + " " +  entity.getLastName())
+                .email(entity.getEmail())
+                .role(entity.getRole())
+                .username(entity.getUsername())
+                .active(entity.isActive())
+                .registrationDateFormatted(entity.getRegistrationDate().format(dateTimeFormatter))
+                .birthDateFormatted(entity.getBirthDate().format(dateFormatter))
+                .teamName(entity.getTeam() != null ? entity.getTeam().getTeamName() : null)
+                .currentLoginAttempts(entity.getLoginAttempts())
+                .build();
     }
 
 }
