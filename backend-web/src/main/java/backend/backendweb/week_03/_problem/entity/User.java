@@ -4,6 +4,7 @@ import backend.backendweb.week_03._problem.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 
 @Table(name = "USERS")
 @Entity
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
