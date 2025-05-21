@@ -3,6 +3,7 @@ package backend.backendweb.week_03._problem.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Table(name = "TEAM")
 @Entity
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
