@@ -1,11 +1,17 @@
 package backend.backendweb.week_03.yh.jung.dto.response;
 
+import backend.backendweb.week_03._problem.entity.Team;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class TeamResponse {
 
@@ -65,8 +71,20 @@ public class TeamResponse {
      */
     private List<UserSimpleResponse> members;
 
-    public static TeamResponse fromEntity() {
-        return null;
+    public static TeamResponse fromEntity(Team team) {
+        List<UserSimpleResponse> members = new ArrayList<>();
+        team.getMembers().forEach(member -> members.add(UserSimpleResponse.fromEntity(member)));
+
+        return new TeamResponse(
+                team.getId(),
+                team.getTeamName(),
+                team.getProjectCode(),
+                team.getDescription() != null ? team.getDescription() : "No description provided.",
+                team.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+                team.getFoundationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                team.getMembers() != null ? team.getMembers().size() : 0,
+                members
+        );
     }
 
 }
