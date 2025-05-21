@@ -4,6 +4,7 @@ import backend.backendweb.week_03._problem.entity.Team;
 import backend.backendweb.week_03.yh.jung.dto.request.TeamCreateRequest;
 import backend.backendweb.week_03.yh.jung.dto.response.TeamResponse;
 import backend.backendweb.week_03._problem.repository.TeamRepository;
+import backend.backendweb.week_03.yh.jung.mapper.TeamMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +17,20 @@ import java.util.stream.Collectors;
 public class TeamServiceYh03 {
 
     private final TeamRepository teamRepository;
+    private final TeamMapper teamMapper;
 
     public TeamResponse createTeam(TeamCreateRequest request) {
         System.out.println("TeamService.createTeam called with: " + request);
 
+/*
         Team team = Team.builder()
                 .teamName(request.getTeamName())
                 .projectCode(request.getProjectNumber() + "-" + request.getProjectNumber())
                 .description(request.getDescription())
                 .foundationDate(LocalDateTime.parse(request.getFoundationDate()))
                 .build();
+*/
+        Team team = teamMapper.toTeam(request);
 
         Team savedTeam = teamRepository.save(team);
 
@@ -38,7 +43,11 @@ public class TeamServiceYh03 {
         Team team = teamRepository.findById(id).orElse(null);
         if(team == null) return null;
 
+/*
         return TeamResponse.fromEntity(team);
+*/
+
+        return teamMapper.toTeamResponse(team);
     }
 
     public List<TeamResponse> getAllTeams() {
@@ -46,9 +55,7 @@ public class TeamServiceYh03 {
 
         List<Team> teams = teamRepository.findAll();
 
-        return teams.stream()
-                .map(TeamResponse::fromEntity)
-                .collect(Collectors.toList());
+        return teamMapper.toTeamResponses(teams);
     }
 
     public TeamResponse updateTeam(Long id, TeamCreateRequest request) {
@@ -56,15 +63,17 @@ public class TeamServiceYh03 {
 
         Team team = teamRepository.findById(id).orElse(null);
         if(team == null) return null;
-
+/*
         team.setTeamName(request.getTeamName());
         team.setProjectCode(request.getProjectNumber() + "-" + request.getProjectNumber());
         team.setDescription(request.getDescription());
         team.setFoundationDate(LocalDateTime.parse(request.getFoundationDate()));
 
-        Team savedTeam = teamRepository.save(team);
+        return TeamResponse.fromEntity(team);
+*/
+        teamMapper.updateTeamFromRequest(request, team);
 
-        return TeamResponse.fromEntity(savedTeam);
+        return teamMapper.toTeamResponse(team);
     }
 
 }

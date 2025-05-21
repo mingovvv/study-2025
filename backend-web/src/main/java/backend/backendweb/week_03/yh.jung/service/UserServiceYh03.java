@@ -7,6 +7,7 @@ import backend.backendweb.week_03.yh.jung.dto.request.UserCreateRequest;
 import backend.backendweb.week_03.yh.jung.dto.response.UserResponse;
 import backend.backendweb.week_03.yh.jung.dto.response.UserSimpleResponse;
 import backend.backendweb.week_03._problem.repository.UserRepository;
+import backend.backendweb.week_03.yh.jung.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class UserServiceYh03 {
     private final TeamRepository teamRepository;
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     public UserResponse createUser(UserCreateRequest request) {
         System.out.println("UserService.createUser called with: " + request);
@@ -28,7 +30,7 @@ public class UserServiceYh03 {
         Team team = teamRepository.findById(request.getTeamId()).orElse(null);
         if(team == null) return null;
 
-        User user = User.builder()
+        /*User user = User.builder()
                 .username(request.getUsername())
                 .password(request.getPassword())
                 .email(request.getEmail())
@@ -39,7 +41,10 @@ public class UserServiceYh03 {
                 .loginAttempts(0)
                 .birthDate(LocalDate.parse(request.getBirthDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")))
                 .team(team)
-                .build();
+                .build();*/
+
+        User user = userMapper.toUser(request);
+        user.setTeam(team); // mapper에서 넣을 수 없음
 
         User savedUser = userRepository.save(user);
 
@@ -52,7 +57,8 @@ public class UserServiceYh03 {
         User user = userRepository.findById(id).orElse(null);
         if(user == null) return null;
 
-        return UserResponse.fromEntity(user);
+//        return UserResponse.fromEntity(user);
+        return userMapper.toUserResponse(user);
     }
 
     public List<UserSimpleResponse> getAllUsers() {
@@ -60,9 +66,12 @@ public class UserServiceYh03 {
 
         List<User> users = userRepository.findAll();
 
+/*
         return users.stream()
                 .map(UserSimpleResponse::fromEntity)
                 .collect(Collectors.toList());
+*/
+        return userMapper.toUserSimpleResponses(users);
     }
 
     public UserResponse updateUser(Long id, UserCreateRequest request) {
@@ -74,6 +83,7 @@ public class UserServiceYh03 {
         Team team = teamRepository.findById(request.getTeamId()).orElse(null);
         if(team == null) return null;
 
+/*
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
         user.setEmail(request.getEmail());
@@ -83,8 +93,10 @@ public class UserServiceYh03 {
         user.setBirthDate(LocalDate.parse(request.getBirthDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         user.setTeam(team);
 
+        return UserResponse.fromEntity(user);
+*/
 
-        return null;
+        return userMapper.toUserResponse(user);
     }
 
 }
