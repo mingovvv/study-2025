@@ -1,7 +1,7 @@
 package backend.backendweb.week_01.mk.jang.week01.template;
 
-import com.test.week01.DataPreprocessor;
-import com.test.week01.observer.ReportSubject;
+import backend.backendweb.week_01.mk.jang.week01.DataPreprocessor;
+import backend.backendweb.week_01.mk.jang.week01.observer.ReportSubject;
 
 import java.util.List;
 

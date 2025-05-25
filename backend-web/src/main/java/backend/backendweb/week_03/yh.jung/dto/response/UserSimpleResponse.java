@@ -1,9 +1,12 @@
 package backend.backendweb.week_03.yh.jung.dto.response;
 
+import backend.backendweb.week_03._problem.entity.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class UserSimpleResponse {
 
@@ -28,8 +31,8 @@ public class UserSimpleResponse {
      */
     private String email;
 
-    public static UserSimpleResponse fromEntity() {
-        return null;
+    public static UserSimpleResponse fromEntity(User user) {
+        return new UserSimpleResponse(user.getId(), user.getUsername(), user.getEmail());
     }
 
 }

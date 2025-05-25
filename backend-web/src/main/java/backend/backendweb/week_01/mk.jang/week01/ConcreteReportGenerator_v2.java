@@ -1,9 +1,9 @@
 package backend.backendweb.week_01.mk.jang.week01;
 
-import com.test.week01.factory_v2.RendererCreator;
-import com.test.week01.observer.ReportSubject;
-import com.test.week01.strategy.ReportRendererStrategy;
-import com.test.week01.template.AbstractReportGenerator;
+import backend.backendweb.week_01.mk.jang.week01.factory_v2.RendererCreator;
+import backend.backendweb.week_01.mk.jang.week01.observer.ReportSubject;
+import backend.backendweb.week_01.mk.jang.week01.strategy.ReportRendererStrategy;
+import backend.backendweb.week_01.mk.jang.week01.template.AbstractReportGenerator;
 
 import java.util.List;
 
