@@ -1,10 +1,15 @@
 package backend.backendweb.week_03.yh.jung.dto.response;
 
+import backend.backendweb.week_03._problem.entity.User;
 import backend.backendweb.week_03._problem.enums.UserRole;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
+
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
 
@@ -78,8 +83,19 @@ public class UserResponse {
      */
     private int currentLoginAttempts;
 
-    public static UserResponse fromEntity() {
-        return null;
+    public static UserResponse fromEntity(User user) {
+        return new UserResponse(
+                user.getId(),
+                user.getUsername(),
+                user.getEmail(),
+                user.getFirstName() + " " + user.getLastName(),
+                user.getRole(),
+                user.isActive(),
+                user.getRegistrationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+                user.getBirthDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                user.getTeam() != null ? user.getTeam().getTeamName() : null,
+                user.getLoginAttempts()
+        );
     }
 
 }
