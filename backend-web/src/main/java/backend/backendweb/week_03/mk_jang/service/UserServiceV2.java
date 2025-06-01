@@ -29,8 +29,9 @@ public class UserServiceV2 {
         Team team = teamRepository.findById(request.getTeamId())
                 .orElseThrow(() -> new IllegalArgumentException("Team not found"));
 
-        User savedUser = userRepository.save(userMapper.toEntity(request, team));
-        return userMapper.toUserResponse(savedUser);
+//        User savedUser = userRepository.save(userMapper.toEntity(request, team));
+//        return userMapper.toUserResponse(savedUser);
+        return null;
     }
 
     public UserResponse getUserById(Long id) {
