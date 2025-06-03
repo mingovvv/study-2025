@@ -1,6 +1,7 @@
 package backend.backendweb.week_03._problem.entity;
 
 import backend.backendweb.week_03._problem.enums.UserRole;
+import backend.backendweb.week_03.mk_jang.dto.request.UserCreateRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,5 +43,47 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
+
+    public static User toEntity(UserCreateRequest request, Team team) {
+        return User.builder()
+                .username(request.getUsername())
+                .password(request.getPassword())
+                .email(request.getEmail())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .role(request.getRole())
+                .birthDate(LocalDate.parse(request.getBirthDate()))
+                .team(team)
+                .isActive(true)
+                .loginAttempts(0)
+                .build();
+    }
+
+
+    public void update(UserCreateRequest request) {
+
+        if (request.getUsername() != null) {
+            this.username = request.getUsername();
+        }
+        if (request.getPassword() != null) {
+            this.password = request.getPassword();
+        }
+        if (request.getEmail() != null) {
+            this.email = request.getEmail();
+        }
+        if (request.getFirstName() != null) {
+            this.firstName = request.getFirstName();
+        }
+        if (request.getLastName() != null) {
+            this.lastName = request.getLastName();
+        }
+        if (request.getRole() != null) {
+            this.role = request.getRole();
+        }
+        if (request.getBirthDate() != null) {
+            this.birthDate = LocalDate.parse(request.getBirthDate());
+        }
+
+    }
 
 }
